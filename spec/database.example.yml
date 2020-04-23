@@ -1,0 +1,9 @@
+sqlite3:
+  adapter: sqlite3
+  database: ":memory:"
+pg:
+  adapter: postgresql
+  database: paper_trail_active_record
+  username: postgres
+  password: dev
+  host: 172.20.0.3
