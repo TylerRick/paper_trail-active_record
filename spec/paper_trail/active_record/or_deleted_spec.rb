@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe PaperTrail::ActiveRecord::OrDeleted do
-  describe '.find_deleted_version/find_deleted' do
+  describe 'author_or_deleted' do
     it do
       user = User.create!
       record = Post.create!(author: user)

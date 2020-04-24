@@ -22,6 +22,7 @@ ActiveRecord::Schema.define do
       t.text 'object'
       t.text 'object_changes'
     end
+    t.integer 'user_id'
   end
 end
 
@@ -37,14 +38,21 @@ class User < ApplicationRecord
   has_paper_trail(
     versions: {
       class_name: 'Version',
+    },
+    meta: {
+      user_id: :id,
     }
   )
+  has_related_versions :user_id
 end
 
 class Post < ApplicationRecord
   has_paper_trail(
     versions: {
       class_name: 'Version',
+    },
+    meta: {
+      user_id: :author_id,
     }
   )
 

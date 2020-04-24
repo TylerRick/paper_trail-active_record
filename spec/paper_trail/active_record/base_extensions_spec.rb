@@ -54,4 +54,15 @@ RSpec.describe PaperTrail::ActiveRecord::BaseExtensions do
       expect{Post.find_deleted!       (0)}.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
+
+  describe 'has_related_versions :user_id' do
+    it do
+      user = User.create!
+      record = Post.create!(author: user)
+      expect(user.versions_with_related).to contain_exactly(
+        user.versions.creates.last,
+        record.versions.creates.last,
+      )
+    end
+  end
 end

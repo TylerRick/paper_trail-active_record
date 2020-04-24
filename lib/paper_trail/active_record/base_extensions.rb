@@ -51,7 +51,7 @@ module BaseExtensions
     end
 
     def has_many_versions(name, *args, **options)
-      has_many name, *args, class_name: 'Version', extend: [PaperTrail::ActiveRecord.config.versions_extends], **options
+      has_many name, *args, class_name: 'Version', extend: PaperTrail::ActiveRecord.config.versions_extends, **options
     end
 
     # Creates associations for finding related versions — that is, versions for related/children
