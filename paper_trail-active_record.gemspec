@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tyler Rick"]
   spec.email         = ["tyler@tylerrick.com"]
 
-  spec.summary       = %q{Various ActiveRecord extensions}
+  spec.summary       = %q{Various ActiveRecord extensions to make your life easier when working with PaperTrail versions}
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/TylerRick/#{spec.name}"
 

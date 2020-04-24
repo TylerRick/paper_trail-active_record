@@ -3,8 +3,8 @@
 [![Gem Version][1]][2]
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rdoc.info/github/TylerRick/paper_trail-active_record/master)
 
-An extension to [PaperTrail](https://github.com/paper-trail-gem/paper_trail)
-that adds some useful extensions to models that have `has_paper_trail` and to the Version model.
+Various ActiveRecord extensions to make your life easier when working with
+[PaperTrail](https://github.com/paper-trail-gem/paper_trail) versions and versioned model records.
 
 ## Methods added to models with `has_paper_trail`
 
@@ -27,25 +27,7 @@ that adds some useful extensions to models that have `has_paper_trail` and to th
 - `#action`
 - `#item_class`
 
-## `OrDeleted`
-
-If you include this module into a model, it will automatically add a `{association}_or_deleted`
-method for every `belongs_to` or `has_one` association that is defined.
-
-Because it reflects on all associations on that model as soon as it is included, make sure to
-include it *after* all of your associations are defined.
-
-If you want more control, and don't want it to add anything automatically, you can manually call
-`define_assoc_or_deleted :association` for each association that you want to have a
-`{association}_or_deleted` method.
-
-If you want it to automatically be added for all assocations on *all* application models, you can
-use [gem 'active_record_include'](https://github.com/TylerRick/active_record_include) like this:
-
-```ruby
-  class ApplicationRecord < ActiveRecord::Base
-    include_when_connected PaperTrail::ActiveRecord::OrDeleted
-```
+## `{association}_or_deleted`
 
 ### `def define_assoc_or_deleted(assoc_name, suffix: nil)`
 
@@ -66,6 +48,23 @@ class Post
   define_assoc_or_deleted :author, suffix: nil
 ```
 
+### Automatically add for all assocations
+
+If you include `PaperTrail::ActiveRecord::OrDeleted` into a model, it will automatically add a `{association}_or_deleted`
+method for every `belongs_to` or `has_one` association that is defined.
+
+Because it reflects on all associations on that model as soon as it is included, make sure to
+include it *after* all of your associations are defined. You can also call
+`define_assoc_or_deleted_on_all_associations` at the end of your model class (that is the same
+method that including the module triggers).
+
+If you want it to automatically be added for all assocations on *all* application models, you can
+use [gem 'active_record_include'](https://github.com/TylerRick/active_record_include) like this:
+
+```ruby
+  class ApplicationRecord < ActiveRecord::Base
+    include_when_connected PaperTrail::ActiveRecord::OrDeleted
+```
 
 
 ## Installation
