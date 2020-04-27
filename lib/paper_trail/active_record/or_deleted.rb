@@ -69,7 +69,7 @@ module OrDeleted
 
     def define_assoc_or_deleted_on_all_associations(suffix: 'or_deleted')
       reflect_on_all_associations.each do |reflection|
-        puts %(#{self}.reflection.name=#{(reflection.name).inspect})
+        #puts %(#{self}.reflection.name=#{(reflection.name).inspect})
         next if reflection.collection?
 
         assoc_name = reflection.name
