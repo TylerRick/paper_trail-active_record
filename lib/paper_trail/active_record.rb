@@ -1,4 +1,6 @@
+require 'active_record'
 require 'paper_trail'
+require 'paper_trail/frameworks/active_record'
 
 require_relative 'active_record/version'
 

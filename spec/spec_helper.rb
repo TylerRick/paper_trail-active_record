@@ -2,6 +2,7 @@ require "bundler/setup"
 require 'rails'
 require 'active_record'
 require "paper_trail/active_record"
+require 'paper_trail/frameworks/active_record'
 require "timecop"
 require "byebug"
 require_relative 'support/connection'
