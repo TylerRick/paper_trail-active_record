@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe PaperTrail::ActiveRecord::OrDeleted do
+RSpec.describe PaperTrail::ActiveRecordExt::OrDeleted do
   describe 'author_or_deleted' do
     it do
       user = User.create!

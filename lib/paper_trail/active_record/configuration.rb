@@ -1,5 +1,5 @@
 module PaperTrail
-  module ActiveRecord
+  module ActiveRecordExt
     class Configuration
       def initialize
         config = self

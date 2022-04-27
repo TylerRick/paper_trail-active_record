@@ -1,4 +1,4 @@
-# PaperTrail::ActiveRecord
+# PaperTrail::ActiveRecordExt
 
 [![Gem Version][1]][2]
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rdoc.info/github/TylerRick/paper_trail-active_record/master)
@@ -50,7 +50,7 @@ class Post
 
 ### Automatically add for all assocations
 
-If you include `PaperTrail::ActiveRecord::OrDeleted` into a model, it will automatically add a `{association}_or_deleted`
+If you include `PaperTrail::ActiveRecordExt::OrDeleted` into a model, it will automatically add a `{association}_or_deleted`
 method for every `belongs_to` or `has_one` association that is defined.
 
 Because it reflects on all associations on that model as soon as it is included, make sure to
@@ -63,7 +63,7 @@ use [gem 'active_record_include'](https://github.com/TylerRick/active_record_inc
 
 ```ruby
   class ApplicationRecord < ActiveRecord::Base
-    include_when_connected PaperTrail::ActiveRecord::OrDeleted
+    include_when_connected PaperTrail::ActiveRecordExt::OrDeleted
 ```
 
 

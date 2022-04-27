@@ -1,6 +1,6 @@
 require 'paper_trail/version_concern'
 
-module PaperTrail::ActiveRecord
+module PaperTrail::ActiveRecordExt
 module VersionConcernExt
   extend ActiveSupport::Concern
 
@@ -72,7 +72,7 @@ end
 end
 
 PaperTrail::VersionConcern.class_eval do
-  prepend PaperTrail::ActiveRecord::VersionConcernExt
-  include PaperTrail::ActiveRecord::VersionConcernExt
+  prepend PaperTrail::ActiveRecordExt::VersionConcernExt
+  include PaperTrail::ActiveRecordExt::VersionConcernExt
 end
 

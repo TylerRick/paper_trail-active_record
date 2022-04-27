@@ -1,5 +1,5 @@
-RSpec.describe PaperTrail::ActiveRecord do
+RSpec.describe PaperTrail::ActiveRecordExt do
   it "has a version number" do
-    expect(PaperTrail::ActiveRecord.version).to be_present
+    expect(PaperTrail::ActiveRecordExt.version).to be_present
   end
 end

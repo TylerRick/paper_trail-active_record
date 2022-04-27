@@ -1,7 +1,7 @@
 module PaperTrail
-  module ActiveRecord
+  module ActiveRecordExt
     def self.version
-      "0.1.2"
+      "1.0.0"
     end
   end
 end

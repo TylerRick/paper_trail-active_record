@@ -10,7 +10,7 @@ require_relative 'active_record/or_deleted'
 require_relative 'active_record/version_extensions'
 
 module PaperTrail
-  module ActiveRecord
+  module ActiveRecordExt
     class << self
       def configuration
         @configuration ||= Configuration.new

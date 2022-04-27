@@ -1,4 +1,4 @@
-module PaperTrail::ActiveRecord
+module PaperTrail::ActiveRecordExt
 
 # If you include this module into a model, it will automatically add a `{association}_or_deleted`
 # method for every `belongs_to` or `has_one` association that is defined.

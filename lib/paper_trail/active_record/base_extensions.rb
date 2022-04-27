@@ -1,4 +1,4 @@
-module PaperTrail::ActiveRecord
+module PaperTrail::ActiveRecordExt
 
 # Extensions to ActiveRecord::Base to better support PaperTrail
 module BaseExtensions
@@ -13,7 +13,7 @@ module BaseExtensions
       else
         Version.where(item_type: base_class.name, item_subtype: self.name)
       end.tap do |versions|
-        PaperTrail::ActiveRecord.config.versions_extends.each do |mod|
+        PaperTrail::ActiveRecordExt.config.versions_extends.each do |mod|
           versions.extend(mod)
         end
       end
@@ -51,7 +51,7 @@ module BaseExtensions
     end
 
     def has_many_versions(name, *args, **options)
-      has_many name, *args, class_name: 'Version', extend: PaperTrail::ActiveRecord.config.versions_extends, **options
+      has_many name, *args, class_name: 'Version', extend: PaperTrail::ActiveRecordExt.config.versions_extends, **options
     end
 
     # Creates associations for finding related versions — that is, versions for related/children
@@ -123,6 +123,6 @@ end
 end
 
 ActiveRecord::Base.class_eval do
-  include PaperTrail::ActiveRecord::BaseExtensions
+  include PaperTrail::ActiveRecordExt::BaseExtensions
 end
 

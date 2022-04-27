@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe PaperTrail::ActiveRecord::BaseExtensions do
+RSpec.describe PaperTrail::ActiveRecordExt::BaseExtensions do
   describe 'paper_trail_update_columns_using_value_from_changes' do
     let(:subject) { OpenStruct.new(a: 'new', updated_at: 'now', changes: {'a': ['old', 'new']}).tap {|subject|
       subject.singleton_class.include described_class

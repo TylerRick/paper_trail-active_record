@@ -5,7 +5,7 @@ require "paper_trail/active_record/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "paper_trail-active_record"
-  spec.version       = PaperTrail::ActiveRecord.version
+  spec.version       = PaperTrail::ActiveRecordExt.version
   spec.authors       = ["Tyler Rick"]
   spec.email         = ["tyler@tylerrick.com"]
 
