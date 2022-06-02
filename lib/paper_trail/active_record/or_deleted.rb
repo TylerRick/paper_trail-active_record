@@ -52,13 +52,13 @@ module OrDeleted
 
           klass =
             if reflection.polymorphic?
-              public_send(reflection.foreign_type).constantize
+              public_send(reflection.foreign_type)&.constantize
             else
               reflection.klass
             end
           id = public_send(reflection.foreign_key)
 
-          klass.find_deleted(id)
+          klass&.find_deleted(id) if id
         end
       end)
 
